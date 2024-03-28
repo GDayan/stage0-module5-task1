@@ -14,15 +14,12 @@ import com.epam.mjc.stage0.utils.Complexity;
  * Complexity.O_1           -> O(1)
  * Complexity.O_N           -> O(N)
  */
-public class AlgorithmComplexity {
-
-
-    /**
-     * Return the linear search complexity if the element you are looking for is at the end of the array.
-     */
-    public Complexity badLinerSearch() {
-        return Complexity.O_N;
-    }
+public class AlgorithmComplexity {/**
+ * Return the linear search complexity if the element you are looking for is at the end of the array.
+ */
+public Complexity badLinerSearch() {
+    return Complexity.O_N;
+}
 
     /**
      * Return the complexity of accessing an array element by index.

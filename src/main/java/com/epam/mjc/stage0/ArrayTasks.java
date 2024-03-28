@@ -40,11 +40,11 @@ public class ArrayTasks {
     }
 
     public String[] reverseArray(String[] arr) {
-        String[] reversedArray = new String[arr.length];
+        String[] result = new String[arr.length];
         for (int i = 0; i < arr.length; i++) {
-            reversedArray[i] = arr[arr.length - i - 1];
+            result[i] = arr[arr.length - 1 - i];
         }
-        return reversedArray;
+        return result;
     }
 
     public int[] getOnlyPositiveNumbers(int[] arr) {
@@ -54,20 +54,20 @@ public class ArrayTasks {
                 count++;
             }
         }
-        int[] positiveNumbers = new int[count];
+        int[] result = new int[count];
         int index = 0;
         for (int num : arr) {
             if (num > 0) {
-                positiveNumbers[index++] = num;
+                result[index++] = num;
             }
         }
-        return positiveNumbers;
+        return result;
     }
 
     public int[][] sortRaggedArray(int[][] arr) {
         Arrays.sort(arr, Comparator.comparingInt(a -> a.length));
-        for (int[] subArr : arr) {
-            Arrays.sort(subArr);
+        for (int[] subArray : arr) {
+            Arrays.sort(subArray);
         }
         return arr;
     }
