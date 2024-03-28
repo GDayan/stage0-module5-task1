@@ -14,23 +14,10 @@ public class FridgeAlgorithm {
         // Open the fridge
         fridge.open();
 
-        // Check if there's milk
-        if (fridge.hasMilk()) {
-            // If there is milk, take it
-            fridge.takeMilk();
-        } else {
-            // If there's no milk, close the fridge and go buy some
-            fridge.close();
-            fridge.goToStore();
-            fridge.buyMilk();
-            // After buying milk, return home and open the fridge again
-            fridge.returnHome();
-            fridge.open();
-            // Take the milk from the fridge
-            fridge.takeMilk();
-        }
+        // Get the milk
+        fridge.getMilk();
 
-        // Close the fridge after taking the milk
+        // Close the fridge
         fridge.close();
     }
 }
