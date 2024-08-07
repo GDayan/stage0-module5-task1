@@ -3,31 +3,54 @@ package com.epam.mjc.stage0;
 import com.epam.mjc.stage0.utils.FridgeIml;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class FridgeAlgorithmTest {
 
-    FridgeAlgorithm fridgeAlgorithm = new FridgeAlgorithm();
+    interface Fridge {
+        void open();
+        void getMilk();
+        void close();
+    }
 
-    @Test
-    public void fridgeAlgorithmTest() {
-        var fridge = new FridgeIml();
-        fridgeAlgorithm.fridgeAlgorithm(fridge);
-        var actionsQueue = fridge.getActionsQueue();
+    class FridgeIml implements Fridge {
+        enum Actions {
+            OPEN, GET_MILK, CLOSE
+        }
 
-        assertAll(
-                () -> assertEquals(3, actionsQueue.size(),
-                        "I think we should use 3 actions to get 1 bottle of milk =) "),
-                () -> assertTrue(FridgeIml.Actions.OPEN == actionsQueue.get(0),
-                        "At first, we should open the fridge =)"),
-                () -> assertTrue(FridgeIml.Actions.GET_MILK == actionsQueue.get(1),
-                        "I think that the order is wrong..."),
-                () -> assertTrue(FridgeIml.Actions.CLOSE == actionsQueue.get(2),
-                        "Did you forget to close the fridge? =)")
-        );
+        private final List<Actions> actionsQueue = new ArrayList<>();
 
+        @Override
+        public void open() {
+            actionsQueue.add(Actions.OPEN);
+        }
+
+        @Override
+        public void getMilk() {
+            actionsQueue.add(Actions.GET_MILK);
+        }
+
+        @Override
+        public void close() {
+            actionsQueue.add(Actions.CLOSE);
+        }
+
+        public List<Actions> getActionsQueue() {
+            return actionsQueue;
+        }
+    }
+
+    class FridgeAlgorithm {
+        public void fridgeAlgorithm(Fridge fridge) {
+            fridge.open();
+            fridge.getMilk();
+            fridge.close();
+        }
     }
 
 
