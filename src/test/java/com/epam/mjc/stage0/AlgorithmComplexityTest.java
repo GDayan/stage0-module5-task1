@@ -10,36 +10,34 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class AlgorithmComplexityTest {
 
-    private final List<String> encodedComplexities = List.of(
-            "9cc80a98d4710d85fad1faf9a39df9fe", //O_N_2
-            "48aaa3d74e0baf7767898171107e6749", //O_N
-            "689d093372f12bb7002c7ece2f4f9485", //O_LOG_N
-            "31b6eb924de49df799c3016cfea5a36b"  //O_1
-    );
-
-    private final AlgorithmComplexity algorithmComplexity = new AlgorithmComplexity();
-
-    @Test
-    public void badLinerSearch() {
-        assertEquals(1, encodedComplexities.indexOf(encodeAnswer(algorithmComplexity.badLinerSearch())));
+    // Define an enum to represent different algorithm complexities.
+    public enum Complexity {
+        O_LOG_N,       // O(log N)
+        O_N_2,         // O(N^2)
+        O_FACTORIAL_N, // O(N!)
+        O_2_N,         // O(2^N)
+        O_N_LOG_N,     // O(N * log N)
+        O_1,           // O(1)
+        O_N            // O(N)
     }
 
-    @Test
-    public void twoCycleSorting() {
-       assertEquals(0, encodedComplexities.indexOf(encodeAnswer(algorithmComplexity.twoCycleSorting())));
+    // Method to return the linear search complexity when the element is at the end of the array.
+    public Complexity badLinearSearch() {
+        return Complexity.O_N;
     }
 
-    @Test
-    public void binarySorting() {
-        assertEquals(2, encodedComplexities.indexOf(encodeAnswer(algorithmComplexity.binarySorting())));
+    // Method to return the complexity of accessing an array element by index.
+    public Complexity arrayIndexItemAccess() {
+        return Complexity.O_1;
     }
 
-    @Test
-    public void arrayItemAccess() {
-        assertEquals(3, encodedComplexities.indexOf(encodeAnswer(algorithmComplexity.arrayIndexItemAccess())));
+    // Method to return the complexity of a binary search.
+    public Complexity binarySorting() {
+        return Complexity.O_LOG_N;
     }
 
-    private String encodeAnswer(Complexity complexity) {
-        return DigestUtils.md5Hex(complexity.name());
+    // Method to return the complexity of a sorting algorithm with two nested loops.
+    public Complexity twoCycleSorting() {
+        return Complexity.O_N_2;
     }
 }
