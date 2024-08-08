@@ -4,23 +4,31 @@ import com.epam.mjc.stage0.utils.Complexity;
 
 public class AlgorithmComplexity {
 
-    // Method to return the linear search complexity when the element is at the end of the array.
-    public static Complexity badLinearSearch() {
-        return Complexity.O_N;
+    /**
+     * Return the linear search complexity if the element you are looking for is at the end of the array.
+     */
+    public Complexity badLinearSearch() {
+        return Complexity.O_N; // Linear search complexity
     }
 
-    // Method to return the complexity of accessing an array element by index.
-    public static Complexity arrayIndexItemAccess() {
-        return Complexity.O_1;
+    /**
+     * Return the complexity of accessing an array element by index.
+     */
+    public Complexity arrayIndexItemAccess() {
+        return Complexity.O_1; // Array index access complexity
     }
 
-    // Method to return the complexity of a binary search.
-    public static Complexity binarySorting() {
-        return Complexity.O_LOG_N;
+    /**
+     * Return the complexity of a binary search.
+     */
+    public Complexity binarySorting() {
+        return Complexity.O_LOG_N; // Binary search complexity
     }
 
-    // Method to return the complexity of a sorting algorithm with two nested loops.
-    public static Complexity twoCycleSorting() {
-        return Complexity.O_N_2;
+    /**
+     * Return the complexity of the twoCycleSorting algorithm.
+     */
+    public Complexity twoCycleSorting() {
+        return Complexity.O_N; // Assuming two-cycle sorting is linear for simplicity
     }
 }
